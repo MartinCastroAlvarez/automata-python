@@ -5,82 +5,17 @@ from app.alphabet import Alphabet
 from app.state import State
 from app.symbol import DEFAULT_SYMBOL
 from app.transition import TransitionTable
+from app import dictionaries
 
 if __name__ == "__main__":
     if not len(sys.argv) == 2 or not sys.argv[1]:
         raise ValueError("Missing input string")
 
     alphabet = Alphabet(
-        {
-            "a",
-            "b",
-            "c",
-            "d",
-            "e",
-            "f",
-            "g",
-            "h",
-            "i",
-            "j",
-            "k",
-            "l",
-            "m",
-            "n",
-            "o",
-            "p",
-            "q",
-            "r",
-            "s",
-            "t",
-            "u",
-            "v",
-            "w",
-            "x",
-            "y",
-            "z",
-            "A",
-            "B",
-            "C",
-            "D",
-            "E",
-            "F",
-            "G",
-            "H",
-            "I",
-            "J",
-            "K",
-            "L",
-            "M",
-            "N",
-            "O",
-            "P",
-            "Q",
-            "R",
-            "S",
-            "T",
-            "U",
-            "V",
-            "W",
-            "X",
-            "Y",
-            "Z",
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            ".",
-            "-",
-            "/",
-            "_",
-            "@",
-            "+",
-        }
+        dictionaries.LOWER_CASE |
+        dictionaries.UPPER_CASE |
+        dictionaries.NUMERIC |
+        dictionaries.SYMBOLS
     )
 
     state_0 = State("0")
